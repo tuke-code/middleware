@@ -105,15 +105,3 @@ class CertificateService(Service):
         configurations which can be used for creating certificates.
         """
         return CERTIFICATE_PROFILES
-
-    @accepts(roles=['CERTIFICATE_READ'])
-    @returns(Dict(
-        *[Dict(profile, additional_attrs=True) for profile in CSR_PROFILES],
-        example=CSR_PROFILES,
-    ))
-    async def certificate_signing_requests_profiles(self):
-        """
-        Returns a dictionary of predefined options for specific use cases i.e openvpn client/server
-        configurations which can be used for creating certificate signing requests.
-        """
-        return CSR_PROFILES
